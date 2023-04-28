@@ -6,9 +6,8 @@ import {IPost} from "../types";
 const inter = Inter({subsets: ['latin']})
 
 
-
 interface IProps {
- posts: IPost[]
+    posts: IPost[]
 }
 
 export default function Home({posts}: IProps) {
