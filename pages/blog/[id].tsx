@@ -6,8 +6,8 @@ const SinglePost = ({post}) => {
 
     return (
         <Layout title={post.title} description={post.body}>
-            <h1>{post.title}</h1>
-            <p>
+            <h1 className="post-header">{post.title}</h1>
+            <p className="post-text">
                 {post.body}
             </p>
         </Layout>
