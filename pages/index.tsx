@@ -12,6 +12,7 @@ export default function Home({posts}) {
             <div className="posts">
                 {posts.map(post => (
                     <BlogItem
+                        key={post.id}
                         title={post.title}
                         description={post.body}
                         id={post.id}/>
