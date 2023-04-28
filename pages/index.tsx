@@ -1,10 +1,17 @@
 import {Inter} from 'next/font/google'
 import Layout from "../components/Layout";
 import BlogItem from "../components/BlogItem";
+import {IPost} from "../types";
 
 const inter = Inter({subsets: ['latin']})
 
-export default function Home({posts}) {
+
+
+interface IProps {
+ posts: IPost[]
+}
+
+export default function Home({posts}: IProps) {
     return (
         <Layout title='Main Page'>
             <h1>Interesting blog</h1>
@@ -25,7 +32,7 @@ export default function Home({posts}) {
 export const getServerSideProps = async () => {
 
     const data = await fetch(`${process.env.API_URL}/posts`)
-    const posts = await data.json()
+    const posts: IPost[] = await data.json()
 
     return {
         props: {posts},
