@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$headerColor: rgba(157, 211, 168, 1);
+$mainColor: rgba(206, 239, 228, 1);
+$buttonColor: rgba(217, 217, 243, 1);
+$bs: 0 4px 8px rgba(0, 0, 0, .1);
+
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -8,19 +16,98 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Roboto', sans-serif;
+  background-color: $mainColor;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: $headerColor;
+  box-shadow: $bs;
+  position: fixed;
+  width: 100%;
+  left: 0;
+
+  img {
+    max-width: 50px;
+    height: auto;
+  }
+
+  a {
+    font-weight: 600;
+    font-size: 20px;
+  }
+}
+
+footer {
+  background-color: $headerColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.blog-item {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 25px 0;
+  transition: .5s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+
+  &:hover {
+    box-shadow: $bs;
+  }
+
+  h5 {
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: capitalize;
+    color: #333;
+  }
+
+  p {
+    margin-bottom: 25px;
+    font-size: 16px;
+    color: #444;
+  }
+
+  &__link-wrapper {
+    display: flex;
+    justify-content: end;
+  }
+
+  &__link {
+    padding: 6px 20px;
+    border-radius: 5px;
+    background-color: $buttonColor;
+    transition: .5s;
+    &:hover {
+      background-color: darken($buttonColor, 5%);
+    }
+  }
 }
