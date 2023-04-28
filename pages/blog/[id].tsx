@@ -1,6 +1,11 @@
 import Layout from "../../components/Layout";
+import {IPost} from "../../types";
 
-const SinglePost = ({post}) => {
+interface IProps {
+    post: IPost
+}
+
+const SinglePost = ({post}: IProps) => {
     if (!post)
         return <p>"Post Doesn't exist"</p>
 
@@ -17,7 +22,7 @@ const SinglePost = ({post}) => {
 export const getServerSideProps = async ({query}) => {
 
     const data = await fetch(`${process.env.API_URL}/posts/${query.id}`)
-    const post = await data.json()
+    const post: IPost = await data.json()
 
     return {
         props: {post},
